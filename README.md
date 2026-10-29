@@ -38,10 +38,17 @@ ln -sf ~/mov-converter/converter_mov.py ~/.local/bin/converter-mov
 converter-mov                  # converte os .MOV da pasta atual
 converter-mov /caminho/pasta   # converte os .MOV da pasta indicada
 converter-mov -s               # deleta os .MOV já convertidos sem perguntar
+converter-mov gui              # abre a interface gráfica (escolher pasta ou arquivo)
 converter-mov --help           # ajuda
 ```
 
-Os `.MP4` resultantes ficam na subpasta `convertidos/` dentro da pasta processada.
+Os `.MP4` resultantes ficam na subpasta `converted/` dentro da pasta processada.
+
+### Interface gráfica (`converter-mov gui`)
+
+- **Pasta:** mesma rotina do terminal — converte todos os `.MOV` para `converted/`, mostra a barra do arquivo e a barra do total, verifica e pergunta se deleta os originais; no fim volta para a tela inicial.
+- **Arquivo único:** pergunta onde salvar (padrão: `converted/<nome>.mp4`), converte, verifica e pergunta se exclui o original.
+- Requer `tkinter` (no Linux Mint/Ubuntu: `sudo apt install python3-tk`).
 
 ---
 
@@ -65,7 +72,11 @@ Erros (se houver) ficam em `converter_error_log.txt` na pasta processada, com de
 
 ```
 mov-converter/
-├── converter_mov.py   # o programa
+├── converter_mov.py   # CLI + núcleo compartilhado
+├── gui.py             # interface gráfica (tkinter)
+├── tests/
+│   └── smoke_gui.py   # teste automático (CLI + GUI, sem mídia real)
+├── docs/              # PROJECT.md + dev-docs (planos, devlog, ADRs)
 ├── README.md
 └── .gitignore
 ```
