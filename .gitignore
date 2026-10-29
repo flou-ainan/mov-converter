@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+converter_error_log.txt
+convertidos/
