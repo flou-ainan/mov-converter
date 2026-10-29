@@ -1,0 +1,10 @@
+# Ruff configuration for the whole repository (lint + format).
+target-version = "py310"
+line-length = 100
+
+[lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "RUF"]
+ignore = ["E501"]  # long lines are handled by the formatter
+
+[format]
+quote-style = "double"

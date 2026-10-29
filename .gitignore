@@ -1,4 +1,8 @@
 __pycache__/
 *.pyc
+.ruff_cache/
 converter_error_log.txt
-convertidos/
+converted/
+
+# hand-off local da conversa (dono + agente) — nunca commitar nem pushar
+docs/dev-docs/chat-context.md
